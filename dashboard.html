@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exelry</title>
+    <link rel="icon" type="image/x-icon" href="./images/logo-blue.svg">
+    <link rel="stylesheet" type="text/css" href="./public/style.css">
+</head>
+<body>
+    <div class="layout_wrapper" id="layout_wrapper">
+        <div class="sidebar" id="sidebar">
+           <div class="sidebar_cnt">
+                <div class="logo">
+                    <a href="#"><img src="./images/logo-white.svg"></a>
+                </div>
+                <div class="menu">
+                    <ul>
+                        <li class="dashboard"><span class="menu_icon"></span><span class="menu_label">dashboard</span></li>
+                        <li class="projects"><span class="menu_icon"></span><span class="menu_label">projects</span></li>
+                        <li class="channels"><span class="menu_icon"></span><span class="menu_label">channels</span></li>
+                        <li class="team"><span class="menu_icon"></span><span class="menu_label">team</span></li>
+                        <li class="timesheet"><span class="menu_icon"></span><span class="menu_label">timesheet</span></li>
+                        <li class="documents"><span class="menu_icon"></span><span class="menu_label">documents</span></li>
+                    </ul>
+                </div>
+                <div class="menu bottom_cnt">
+                    <ul>
+                        <li class="settings"><span class="menu_icon"></span><span class="menu_label">settings</span></li>
+                        <li class="collapse" id="collapse"><span class="menu_icon"></span><span class="menu_label">collapse</span></li>
+                    </ul>
+                </div>
+           </div>
+        </div>
+        <div class="header">
+            <div class="left_cnt">
+                <div class="project_dropdown">
+                    <div class="project_logo">IB</div>
+                    <div class="project_desc">
+                        <span class="heading">PROJECTS</span>
+                        <span class="list">Immibox, Profitx, Qlytix</span>
+                    </div>
+                    <div class="more">+3</div>
+                    <img class="down-arrow" src="./images/down-arrow.svg">
+                </div>
+                <div class="kanban_timeline_list">
+                   <ul>
+                    <li class="active">List</li>
+                    <li>Kanban</li>
+                    <li>Timeline</li>
+                    <li><img src="./images/more.svg"></li>
+                   </ul> 
+                </div>
+            </div>
+            <div class="right_cnt">
+                <button class="primary_btn add_more">+</button>
+                <div class="search_area">
+                    <input type="text" placeholder="Search" class="form_control" />
+                    <img class="search_icon" src="./images/search.svg">
+                </div>
+                <div class="message_notification">
+                    <ul>
+                        <li><img src="./images/chat.svg"></li>
+                        <li><img src="./images/notification.svg"></li>
+                    </ul>
+                </div>
+                <div class="profile_icon">
+                    <img src="./images/profile_icon.png">
+                </div>
+            </div>
+        </div>
+        <div class="main_content">
+            <div class="projects_list">
+            </div>
+            <div class="tabs_wrapper">
+                <div role="tablist" class="tablist">
+                  <button role="tab" aria-selected="true" id="activities" class="tab_btn active">Activities <span class="count">12</span></button>
+                  <button role="tab" aria-selected="false" id="channels" class="tab_btn">Channels <span class="count">9</span></button>
+                </div>
+                <div role="tabpanel" aria-labelledby="activities" class="tab_cnt">
+                  <div class="filter_sec">
+                    <select name="all" class="form_select all_select">
+                        <option value="all">All</option>
+                    </select>
+                  </div>
+                  <div class="activities_list">
+                    <div class="activity_item">
+                        <div class="activity_heading">
+                            <div class="left_cnt">
+                                <div class="profile_icon">
+                                    <img src="./images/profile_icon.png">
+                                </div>
+                                <h6>Jessie Freeman</h6>
+                            </div>
+                            <div class="right_cnt">
+                                <span class="time">4:20pm</span>
+                                <img src="./images/more.svg">
+                            </div>
+                        </div>
+                        <div class="activity_desc">
+                            <h6>Development Issue #45 resolved</h6>
+                        </div>
+                    </div>
+                    <div class="timeline-day">
+                        <span>Yesturday</span>
+                    </div>
+                    <div class="activity_item">
+                        <div class="activity_heading">
+                            <div class="left_cnt">
+                                <div class="profile_icon">
+                                    <img src="./images/profile_icon.png">
+                                </div>
+                                <h6>Jessie Freeman</h6>
+                            </div>
+                            <div class="right_cnt">
+                                <span class="time">4:20pm</span>
+                                <img src="./images/more.svg">
+                            </div>
+                        </div>
+                        <div class="activity_desc">
+                            <h6>Meeting with marketing team</h6>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting…</p>
+                            <button class="primary_btn">Accept</button>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                <div role="tabpanel" aria-labelledby="channels" hidden class="tab_cnt">
+                  <div class="filter_sec">
+                    <select name="all" class="form_select client_select">
+                        <option value="all">Select Client</option>
+                    </select>
+                    <select name="all" class="form_select channels_select">
+                        <option value="all">Select Channels</option>
+                    </select>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script type="text/javascript">
+    let collapse = document.getElementById("collapse");
+    let sidebar = document.getElementById("sidebar");
+    let layout_wrapper = document.getElementById("layout_wrapper");
+    collapse.addEventListener('click', function(){
+        sidebar.classList.toggle("not_collapsed");
+        layout_wrapper.classList.toggle("sidebar_not_collapsed");
+    })
+
+    const tab = document.querySelector('.tabs_wrapper');
+    const tabButtons = tab.querySelectorAll('[role="tab"]');
+    const tabPanels = Array.from(tab.querySelectorAll('[role="tabpanel"]'));
+
+    function tabClickHandler(e) {
+        //Hide All Tabpane
+        tabPanels.forEach(panel => {
+            panel.hidden = 'true';
+        });
+        
+        //Deselect Tab Button
+        tabButtons.forEach( button => {
+            button.setAttribute('aria-selected', 'false');
+            button.setAttribute('class', 'tab_btn');
+        });
+        
+        //Mark New Tab
+        e.currentTarget.setAttribute('aria-selected', 'true');
+        e.currentTarget.setAttribute('class', 'tab_btn active');
+        //Show New Tab
+        const { id } = e.currentTarget;
+        
+        const currentTab = tabPanels.find(
+            panel => panel.getAttribute('aria-labelledby') === id
+        );
+        
+        currentTab.hidden = false;
+    }
+
+    tabButtons.forEach(button => {
+        button.addEventListener('click', tabClickHandler);
+    })
+    
+</script>
+</body>
+</html>
